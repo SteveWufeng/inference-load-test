@@ -21,3 +21,7 @@ pixi run python make_report.py
 ## License
 
 AGPL-3.0-only
+
+## AI disclosure
+
+This repository was written by an AI coding assistant (opencode, running on the same model hosted at the tested endpoint) under human direction and review. The benchmark data is real. See `AGENTS.md`.
