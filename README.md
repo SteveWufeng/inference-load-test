@@ -2,6 +2,8 @@
 
 Reliability/capacity test of the vLLM endpoint at `http://iiat.gonzaga.edu:30000` (`/v1/chat/completions`). 1→96 concurrent clients, 0 failures, 2,118 tok/s peak @ 96. Interactive envelope: ≤20 clients. Best throughput/latency: 40.
 
+Full findings: [report/report.md](report/report.md)
+
 ## Layout
 
 - `locustfile.py` — Locust load test (non-streaming chat)
