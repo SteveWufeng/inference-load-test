@@ -17,3 +17,7 @@ pixi run bench 40 10 60s   # users spawn duration
 pixi run python ttft_probe.py
 pixi run python make_report.py
 ```
+
+## License
+
+AGPL-3.0-only
