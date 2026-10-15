@@ -1,0 +1,25 @@
+[workspace]
+name = "load-test"
+version = "0.1.0"
+description = "Locust load test for a vLLM OpenAI-compatible /v1/chat/completions endpoint"
+channels = ["conda-forge"]
+platforms = ["linux-64", "osx-64", "osx-arm64"]
+
+[dependencies]
+python = "3.12.*"
+locust = ">=2.46.7"
+matplotlib = ">=3.11.2,<4"
+
+[tasks]
+run = "locust -f locustfile.py --host http://iiat.gonzaga.edu:30000"
+smoke = "locust -f locustfile.py --host http://iiat.gonzaga.edu:30000 --headless --only-summary -u 1 -r 1 -t 20s"
+worker = "locust -f locustfile.py --worker"
+headless = "locust -f locustfile.py --host http://iiat.gonzaga.edu:30000 --headless --only-summary -u 10 -r 5 -t 1m"
+
+[tasks.bench]
+cmd = "locust -f locustfile.py --host http://iiat.gonzaga.edu:30000 --headless --only-summary -u {{ users }} -r {{ spawn }} -t {{ dur }}"
+args = [
+  { arg = "users", default = "10" },
+  { arg = "spawn", default = "5" },
+  { arg = "dur", default = "60s" },
+]
